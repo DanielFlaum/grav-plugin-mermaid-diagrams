@@ -1,3 +1,9 @@
+# v1.4.0
+## 02-03-2024
+
+1. [](#new)
+   * Upgraded [mermaid](https://github.com/mermaid-js/mermaid) to v10.8.0, which (among many other things) adds Gitgaph diagrams.
+
 # v1.3.0
 ## 30-03-2022
 
