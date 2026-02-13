@@ -24,3 +24,14 @@ form:
         0: Disabled
       validate:
         type: bool
+    fenced_code_blocks:
+      type: toggle
+      label: Fenced Code Blocks
+      help: "Enable support for ```mermaid fenced code blocks in addition to [mermaid]...[/mermaid] tags"
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
