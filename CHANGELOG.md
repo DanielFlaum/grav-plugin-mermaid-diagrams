@@ -1,3 +1,11 @@
+# v1.5.0
+## 12-02-2026
+
+1. [](#new)
+   * Upgraded [mermaid](https://github.com/mermaid-js/mermaid) to v11.12.2.
+   * Removed legacy v7/v8 CSS overrides (mermaid.css) no longer applicable to v10+.
+   * Updated mermaid initialization to use v10+ API (removed deprecated ganttConfig).
+
 # v1.4.0
 ## 02-03-2024
 

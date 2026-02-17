@@ -102,14 +102,11 @@ class MermaidDiagramsPlugin extends Plugin
         //$this->grav['assets']->addJs('plugin://mermaid-diagrams/js/lodash.min.js');
         //$this->grav['assets']->addJs('plugin://mermaid-diagrams/js/raphael-min.js');
         $this->grav['assets']->addJs('plugin://mermaid-diagrams/js/mermaid.min.js');
-        $this->grav['assets']->addCss('plugin://mermaid-diagrams/css/mermaid.css');
 
         // Used to start the conversion of the div "diagram" when the page is loaded
-        $init = "$(document).ready(function() {
-                    mermaid.initialize({startOnLoad:true});
-                    mermaid.ganttConfig = {
-                      axisFormatter: [[\"".$this->gantt_axis."\", function (d){return d.getDay() == 1;}]]
-                    };
+        $init = "mermaid.initialize({
+                    startOnLoad: true,
+                    gantt: { axisFormat: \"".$this->gantt_axis."\" }
                  });";
 
         $this->grav['assets']->addInlineJs($init);
