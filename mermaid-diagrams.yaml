@@ -3,6 +3,7 @@
 
 enabled: true	# Plugin activation
 align: center	# Position of diagrams [left, center, right]
+fenced_code_blocks: false	# Support ```mermaid fenced code blocks, default: false for backward compatibility
 
 # Settings of sequence diagrams
 # ****************

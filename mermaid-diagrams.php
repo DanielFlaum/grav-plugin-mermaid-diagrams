@@ -52,6 +52,16 @@ class MermaidDiagramsPlugin extends Plugin
 
             $raw = $this->parseInjectMermaid($raw, $match_mermaid);
 
+            if ($this->config->get('plugins.mermaid-diagrams.fenced_code_blocks')) {
+                $match_mermaid_fenced = function ($matches) {
+                    $replace_header = "<div class=\"mermaid\" style=\"text-align:".$this->align."\">";
+                    $replace_footer = "</div>";
+                    return $replace_header . $matches[1] . $replace_footer;
+                };
+
+                $raw = $this->parseInjectMermaidFenced($raw, $match_mermaid_fenced);
+            }
+
             $page->setRawContent($raw);
         }
     }
@@ -63,6 +73,12 @@ class MermaidDiagramsPlugin extends Plugin
     {
         // Regular Expression for selection
         $regex = '/\[mermaid\]([\s\S]*?)\[\/mermaid\]/';
+        return preg_replace_callback($regex, $function, $content);
+    }
+
+    protected function parseInjectMermaidFenced($content, $function)
+    {
+        $regex = '/```mermaid\s*\n?([\s\S]*?)```/';
         return preg_replace_callback($regex, $function, $content);
     }
 
